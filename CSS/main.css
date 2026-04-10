@@ -5,6 +5,11 @@
     grid-area: bottom;
     justify-self: center;
 }
+#reset {
+    grid-area: top;
+    justify-self: start;
+    margin-right: 1em;
+}
 .grid-container{
     display: grid;
     grid-template-areas:
