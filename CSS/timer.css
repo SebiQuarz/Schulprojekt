@@ -1,0 +1,10 @@
+body{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #111;
+    color: #f00;
+    font-family: monospace;
+    font-size: 5rem;
+}
