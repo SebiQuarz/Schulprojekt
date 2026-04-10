@@ -1,10 +1,8 @@
 #timer{
     display: grid;
-    place-items: center;
-    height: 10vh;
-    margin: 0;
+    place-items: end;
+    height: 1.em;
     background: #111;
     color: #f00;
-    font-family: monospace;
-    font-size: 5rem;
+    font-size: 3em;
 }
