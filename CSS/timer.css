@@ -1,7 +1,7 @@
 #timer{
     display: grid;
     place-items: center;
-    height: 100vh;
+    height: 10vh;
     margin: 0;
     background: #111;
     color: #f00;
