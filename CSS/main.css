@@ -1,0 +1,14 @@
+#timer{
+    grid-area: top;
+}
+#gitter{
+    grid-area: bottom;
+    justify-self: center;
+}
+.grid-container{
+    display: grid;
+    grid-template-areas:
+        "top"
+        "bottom";
+    background-color: black;
+}
