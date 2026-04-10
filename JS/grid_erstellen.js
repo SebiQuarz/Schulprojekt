@@ -1,7 +1,32 @@
-var rows = 16;
-var cols = 16;
+let difficulty = 1;
+let rows = 0;
+let cols = 0;
+let flaggen = 0;
 
-function spielfeld_erstellen(cols, rows){
+function schwierigkeit(){
+    switch(difficulty){
+        case 0:
+            rows = 10;
+            cols = 10;
+            flaggen = 10;
+            break;
+        case 1:
+            rows = 16;
+            cols = 16;
+            flaggen = 40;
+            break;
+        case 2:
+            rows = 16;
+            cols = 32;
+            flaggen = 99;
+            break;
+    }
+}
+
+schwierigkeit()
+
+
+function spielfeld_erstellen(){
     var grid = document.getElementById("gitter");
     grid.style.display = "grid";
     grid.style.gridTemplateColumns = `repeat(${cols}, 30px)`;
@@ -16,7 +41,7 @@ function spielfeld_erstellen(cols, rows){
             Feld.style.border = "1px solid #ccc";
             grid.appendChild(Feld);
         }
-    }  
+    }
 }
 
-spielfeld_erstellen(cols, rows);
+spielfeld_erstellen();
