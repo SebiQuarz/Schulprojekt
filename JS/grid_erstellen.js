@@ -1,4 +1,4 @@
-let difficulty = 1;
+let difficulty = 2;
 let rows = 0;
 let cols = 0;
 let minen = 0;
@@ -33,12 +33,16 @@ function spielfeld_erstellen(){
 
     for (let x = 0; x < cols; x++){
         for (let y = 0; y < rows; y++){
-            let Feld = document.createElement("div");
+            let Feld = document.createElement("button");
             Feld.style.width = "30px";
             Feld.style.height = "30px";
             Feld.style.backgroundColor = "#434343";
             Feld.style.border = "1px solid #ffffff";
             grid.appendChild(Feld);
+            Feld.classList.add("Feld-btn");
+            Feld.addEventListener("click", function(){
+                Feld.style.backgroundColor = "#ffffff";
+            });
         }
     }
 }
