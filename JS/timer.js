@@ -1,4 +1,3 @@
-
 let time = 0;
 setInterval(() => {
     time++;
