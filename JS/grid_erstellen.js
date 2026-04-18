@@ -25,6 +25,21 @@ function schwierigkeit(){
 
 schwierigkeit()
 
+let minen_position = Array.from({ length: cols }, () => Array(rows).fill(false));
+let minen_nachbar = Array.from({ length: cols }, () => Array(rows).fill(0));
+
+function minen_wo(){
+    for(let m = 0; m < minen; m++){
+        let x = Math.floor(Math.random() * cols);
+        let y = Math.floor(Math.random() * rows);
+        if (minen_position[x][y]){
+            m--;
+            continue;
+        }
+        minen_position[x][y] = true;
+    }
+}
+
 function spielfeld_erstellen(){
     var grid = document.getElementById("gitter");
     grid.style.display = "grid";
@@ -40,6 +55,8 @@ function spielfeld_erstellen(){
             Feld.style.border = "1px solid #ffffff";
             grid.appendChild(Feld);
             Feld.classList.add("Feld-btn");
+            Feld.id = x + "/" + y;
+            console.log(Feld.id);
             Feld.addEventListener("contextmenu", function(e){
                 e.preventDefault();
                 right_click(Feld);
@@ -47,33 +64,47 @@ function spielfeld_erstellen(){
             Feld.addEventListener("click", function(){
                 left_click(Feld);
             });
+            minen_zahler(Feld);
+            console.log(minen_nachbar);
         }
     }
 }
+
+minen_wo()
+
 spielfeld_erstellen();
 
-
-let minen_position = Array.from({ length: cols }, () => Array(rows).fill(false));
-
-function minen_wo(){
-    for(let m = 0; m < minen; m++){
-        let x = Math.floor(Math.random() * cols);
-        let y = Math.floor(Math.random() * rows);
-        if (minen_position[x][y]){
-            m--;
-            continue;
-        }
-        minen_position[x][y] = true;
-    }
-    console.log(minen_position);
-}
-minen_wo()
+console.log(minen_position);
 
 
 function right_click(Feld){
     Feld.style.backgroundColor = "#ff0000";
+
 }
 
 function left_click(Feld){
     Feld.style.backgroundColor = "#1ef3cc";
+}
+
+function minen_zahler(Feld){
+    for(let x = -1; x < 2; x++){
+        for(let y = -1; y < 2; y++){
+            if (x == 0 && y == 0){
+                continue
+            }
+            let cords = Feld.id.split("/")
+            let new_cords = [
+                parseInt(cords[0]) + x,
+                parseInt(cords[1]) + y
+            ]
+            let mx = new_cords[0]
+            let my = new_cords[1]
+            if (my==-1 || mx==-1 || mx==cols || my==rows){
+                continue
+            }
+            if (minen_position[mx][my]){
+                minen_nachbar[cords[0]][cords[1]] += 1
+            }
+        }
+    }
 }
