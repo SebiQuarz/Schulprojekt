@@ -40,8 +40,11 @@ function spielfeld_erstellen(){
             Feld.style.border = "1px solid #ffffff";
             grid.appendChild(Feld);
             Feld.classList.add("Feld-btn");
-            Feld.addEventListener("click", function(){
+            Feld.addEventListener("contextmenu", function(){
                 Feld.style.backgroundColor = "#ffffff";
+            });
+            Feld.addEventListener("click", function(){
+                Feld.style.backgroundColor = "#ffcc00";
             });
         }
     }
