@@ -3,6 +3,7 @@ let rows = 0;
 let cols = 0;
 let minen = 0;
 let flaggen = 0;
+let verloren = false;
 
 function schwierigkeit(){
     switch(difficulty){
@@ -48,8 +49,8 @@ function spielfeld_erstellen(){
     grid.style.gridTemplateColumns = `repeat(${cols}, 30px)`;
     grid.style.textAlign = "center";
 
-    for (let x = 0; x < cols; x++){
-        for (let y = 0; y < rows; y++){
+    for (let y = 0; y < rows; y++){
+        for (let x = 0; x < cols; x++){
             let Feld = document.createElement("button");
             Feld.style.width = "30px";
             Feld.style.height = "30px";
@@ -89,19 +90,67 @@ function right_click(Feld){
 }
 
 function left_click(Feld){
-    Feld.style.backgroundColor = "#1ef3cc";
+    let cords = Feld.id.split("/");
+    let x = parseInt(cords[0]);
+    let y = parseInt(cords[1]);
+    let minen_anzahl = minen_nachbar[x][y];
+    if(minen_position[x][y]){
+        window.alert("Verloren");
+        Feld.style.backgroundImage = "url('../Bilder/Mine.png')";
+        Feld.style.backgroundSize = "cover";
+    }
+    else{
+        switch(minen_anzahl){
+            case 1:
+                Feld.style.backgroundImage = "url('../Bilder/1.png')";
+                Feld.style.backgroundSize = "cover";
+                break;
+            case 2:
+                Feld.style.backgroundImage = "url('../Bilder/2.png')";
+                Feld.style.backgroundSize = "cover";
+                break;
+            case 3:
+                Feld.style.backgroundImage = "url('../Bilder/3.png')";
+                Feld.style.backgroundSize = "cover";
+                break;
+            case 4:
+                Feld.style.backgroundImage = "url('../Bilder/4.png')";
+                Feld.style.backgroundSize = "cover";
+                break;
+            case 5:
+                Feld.style.backgroundImage = "url('../Bilder/5.png')";
+                Feld.style.backgroundSize = "cover";
+                break;
+            case 6:
+                Feld.style.backgroundImage = "url('../Bilder/6.png')";
+                Feld.style.backgroundSize = "cover";
+                break;
+            case 7:
+                Feld.style.backgroundImage = "url('../Bilder/7.png')";
+                Feld.style.backgroundSize = "cover";
+                break;
+            case 8:
+                Feld.style.backgroundImage = "url('../Bilder/8.png')";
+                Feld.style.backgroundSize = "cover";
+                break;
+            case 0:
+                Feld.style.backgroundColor = "#000";
+        }
+    }
 }
 
 function minen_zahler(Feld){
+    let cords = Feld.id.split("/")
+    let fx = parseInt(cords[0]);
+    let fy = parseInt(cords[1]);
     for(let x = -1; x < 2; x++){
         for(let y = -1; y < 2; y++){
             if (x == 0 && y == 0){
                 continue
             }
-            let cords = Feld.id.split("/")
             let new_cords = [
-                parseInt(cords[0]) + x,
-                parseInt(cords[1]) + y
+                fx + x,
+                fy + y
             ]
             let mx = new_cords[0]
             let my = new_cords[1]
@@ -109,7 +158,7 @@ function minen_zahler(Feld){
                 continue
             }
             if (minen_position[mx][my]){
-                minen_nachbar[cords[0]][cords[1]] += 1
+                minen_nachbar[fx][fy] += 1
             }
         }
     }
