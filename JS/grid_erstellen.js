@@ -40,11 +40,12 @@ function spielfeld_erstellen(){
             Feld.style.border = "1px solid #ffffff";
             grid.appendChild(Feld);
             Feld.classList.add("Feld-btn");
-            Feld.addEventListener("contextmenu", function(){
-                Feld.style.backgroundColor = "#ffffff";
+            Feld.addEventListener("contextmenu", function(e){
+                e.preventDefault();
+                right_click(Feld);
             });
             Feld.addEventListener("click", function(){
-                Feld.style.backgroundColor = "#ffcc00";
+                left_click(Feld);
             });
         }
     }
@@ -69,3 +70,10 @@ function minen_wo(){
 minen_wo()
 
 
+function right_click(Feld){
+    Feld.style.backgroundColor = "#ff0000";
+}
+
+function left_click(Feld){
+    Feld.style.backgroundColor = "#1ef3cc";
+}
