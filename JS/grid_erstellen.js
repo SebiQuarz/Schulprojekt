@@ -77,7 +77,6 @@ spielfeld_erstellen();
 
 console.log(minen_position);
 
-
 function right_click(Feld){
     if (Feld.style.backgroundImage.includes('../Bilder/flagge.png')){
         Feld.style.backgroundImage = "none";
@@ -87,7 +86,13 @@ function right_click(Feld){
     }
 }
 
+const visited = new Set();
+
 function left_click(Feld){
+    if (visited.has(Feld.id)){
+        return;
+    }
+    visited.add(Feld.id);
     let cords = Feld.id.split("/");
     let x = parseInt(cords[0]);
     let y = parseInt(cords[1]);
@@ -133,6 +138,23 @@ function left_click(Feld){
                 break;
             case 0:
                 Feld.style.backgroundColor = "#000";
+                for(let zx = -1; zx < 2; zx ++){
+                    for(let zy = -1; zy < 2; zy++){
+                        if(zx == 0 && zy == 0){
+                            continue;
+                        }
+
+                        let nx = zx + x;
+                        let ny = zy + y;
+
+                        if(nx < 0 || ny < 0 || nx >= cols || ny >= rows){
+                            continue;
+                        };
+                        let Feld2 = document.getElementById(nx + "/" +  ny)
+                        left_click(Feld2)
+                    }
+                }
+                break;
         }
     }
 }
