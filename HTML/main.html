@@ -6,16 +6,18 @@
   <title>Minesweeper</title>
   <link rel="stylesheet" href="../CSS/main.css">
   <link rel="stylesheet" href="../CSS/timer.css">
+  <link rel="stylesheet" href="../CSS/flaggen.css">
 </head>
 <body>
-  <script src="../JS/main.js"></script>
-  <script src="../JS/timer.js"></script>
-  
   <div class="grid-container">
     <div id="gitter"></div>
-    <script src="../JS/grid_erstellen.js"></script>
+    <div id="flaggen_cnt">0</div>
     <div id="timer">0</div>
     <input type="button" id="reset" value="Neustart" onclick="fct_reset()">
   </div>
+  <script src="../JS/timer.js"></script>
+  <script src="../JS/main.js"></script>
+  <script src="../JS/flaggen.js"></script>
+  <script src="../JS/grid_erstellen.js"></script>
 </body>
 </html>

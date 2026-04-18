@@ -1,7 +1,8 @@
-let difficulty = 2;
+let difficulty = 0;
 let rows = 0;
 let cols = 0;
 let minen = 0;
+let flaggen = 0;
 let verloren = false;
 
 function schwierigkeit(){
@@ -22,6 +23,7 @@ function schwierigkeit(){
             minen = 99;
             break;
     }
+    flaggen = minen
 }
 
 schwierigkeit()

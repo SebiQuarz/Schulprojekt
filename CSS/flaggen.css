@@ -1,7 +1,7 @@
-#timer{
+#flaggen_cnt{
     display: grid;
     grid-area: top;
-    justify-self: end;
+    justify-self: start;
     height: 1.em;
     background: #111;
     color: #f00;
