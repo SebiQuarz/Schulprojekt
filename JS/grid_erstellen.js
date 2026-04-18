@@ -51,7 +51,7 @@ function spielfeld_erstellen(){
             let Feld = document.createElement("button");
             Feld.style.width = "30px";
             Feld.style.height = "30px";
-            Feld.style.backgroundColor = "#434343";
+            Feld.style.backgroundColor = "rgb(169, 169, 169)";
             Feld.style.border = "1px solid #ffffff";
             grid.appendChild(Feld);
             Feld.classList.add("Feld-btn");
@@ -78,8 +78,12 @@ console.log(minen_position);
 
 
 function right_click(Feld){
-    Feld.style.backgroundColor = "#ff0000";
-
+    if (Feld.style.backgroundImage.includes('../Bilder/flagge.png')){
+        Feld.style.backgroundImage = "none";
+    } else {  
+        Feld.style.backgroundImage = "url('../Bilder/flagge.png')";
+        Feld.style.backgroundSize = "cover";
+    }
 }
 
 function left_click(Feld){
