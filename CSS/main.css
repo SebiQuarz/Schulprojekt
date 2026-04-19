@@ -5,6 +5,14 @@
     grid-area: bottom;
     justify-self: center;
 }
+
+.grid-container{
+    display: grid;
+    grid-template-areas:
+        "top"
+        "bottom";
+    background-color: black;
+}
 #reset {
     grid-area: top;
     justify-self: center;
@@ -13,10 +21,22 @@
     color: white;
     font-weight: bold;
 }
-.grid-container{
+#timer{
     display: grid;
-    grid-template-areas:
-        "top"
-        "bottom";
-    background-color: black;
+    grid-area: top;
+    justify-self: end;
+    height: 1.em;
+    background: #111;
+    color: #f00;
+    font-size: 3em;
 }
+#flaggen_cnt{
+    display: grid;
+    grid-area: top;
+    justify-self: start;
+    height: 1.em;
+    background: #111;
+    color: #f00;
+    font-size: 3em;
+}
+

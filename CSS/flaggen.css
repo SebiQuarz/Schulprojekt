@@ -1,9 +1,0 @@
-#flaggen_cnt{
-    display: grid;
-    grid-area: top;
-    justify-self: start;
-    height: 1.em;
-    background: #111;
-    color: #f00;
-    font-size: 3em;
-}

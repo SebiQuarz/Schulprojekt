@@ -1,8 +1,7 @@
-let difficulty = 0;
+let difficulty = 1;
 let rows = 0;
 let cols = 0;
 let minen = 0;
-let flaggen = 0;
 let verloren = false;
 
 function schwierigkeit(){
@@ -23,7 +22,7 @@ function schwierigkeit(){
             minen = 99;
             break;
     }
-    flaggen = minen
+    fct_reset();
 }
 
 schwierigkeit()
@@ -82,9 +81,11 @@ console.log(minen_position);
 function right_click(Feld){
     if (Feld.style.backgroundImage.includes('../Bilder/flagge.png')){
         Feld.style.backgroundImage = "none";
+        Flagge_minus();
     } else {  
         Feld.style.backgroundImage = "url('../Bilder/flagge.png')";
         Feld.style.backgroundSize = "cover";
+        Flagge_plus();
     }
 }
 
