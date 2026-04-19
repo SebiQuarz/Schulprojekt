@@ -82,10 +82,10 @@ function right_click(Feld){
     if (Feld.style.backgroundImage.includes('../Bilder/flagge.png')){
         Feld.style.backgroundImage = "none";
         Flagge_minus();
-    } else {  
+    } else if (Flaggen < minen && visited.has(Feld.id) == false) {  
         Feld.style.backgroundImage = "url('../Bilder/flagge.png')";
         Feld.style.backgroundSize = "cover";
-        Flagge_plus();
+        Flagge_plus();  
     }
 }
 
@@ -96,6 +96,10 @@ function left_click(Feld){
         return;
     }
     visited.add(Feld.id);
+    if (Feld.style.backgroundImage.includes('../Bilder/flagge.png')){
+        Feld.style.backgroundImage = "none";
+        Flagge_minus();
+    }
     let cords = Feld.id.split("/");
     let x = parseInt(cords[0]);
     let y = parseInt(cords[1]);
