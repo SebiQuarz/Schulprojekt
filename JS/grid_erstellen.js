@@ -3,6 +3,7 @@ let rows = 0;
 let cols = 0;
 let minen = 0;
 let verloren = false;
+let started = false;
 
 function schwierigkeit(){
     switch(difficulty){
@@ -22,7 +23,7 @@ function schwierigkeit(){
             minen = 99;
             break;
     }
-    fct_reset();
+    updt_anzeige()
 }
 
 schwierigkeit()
@@ -79,6 +80,7 @@ spielfeld_erstellen();
 console.log(minen_position);
 
 function right_click(Feld){
+    started = true;
     if (Feld.style.backgroundImage.includes('../Bilder/Flagge.png')){
         Feld.style.backgroundImage = "none";
         Flagge_minus();
@@ -92,6 +94,7 @@ function right_click(Feld){
 const visited = new Set();
 
 function left_click(Feld){
+    started = true;
     if (visited.has(Feld.id)){
         return;
     }

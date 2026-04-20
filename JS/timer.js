@@ -1,5 +1,7 @@
 let time = 0;
 setInterval(() => {
-    time++;
-    document.getElementById('timer').innerText = time;
+    if(started==true){
+        time++;
+        document.getElementById('timer').innerText = time;
+    }
 }, 1000);
