@@ -80,6 +80,7 @@ spielfeld_erstellen();
 console.log(minen_position);
 
 function right_click(Feld){
+    if (verloren) return;
     started = true;
     if (Feld.style.backgroundImage.includes('../Bilder/Flagge.png')){
         Feld.style.backgroundImage = "none";
@@ -94,10 +95,10 @@ function right_click(Feld){
 const visited = new Set();
 
 function left_click(Feld){
-    started = true;
-    if (visited.has(Feld.id)){
+    if (verloren || visited.has(Feld.id)){
         return;
     }
+    started = true;
     visited.add(Feld.id);
     if (Feld.style.backgroundImage.includes('../Bilder/Flagge.png')){
         Feld.style.backgroundImage = "none";
@@ -108,9 +109,8 @@ function left_click(Feld){
     let y = parseInt(cords[1]);
     let minen_anzahl = minen_nachbar[x][y];
     if(minen_position[x][y]){
-        window.alert("Verloren");
-        Feld.style.backgroundImage = "url('../Bilder/Mine.png')";
-        Feld.style.backgroundSize = "cover";
+        game_over();
+        return;
     }
     else{
         switch(minen_anzahl){
