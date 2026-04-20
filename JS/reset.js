@@ -1,5 +1,4 @@
 function fct_reset(){
-    window.alert("Neustart");
     Flaggen = 0;
     updt_anzeige();
     time = -1;
@@ -7,6 +6,7 @@ function fct_reset(){
     minen_nachbar = Array.from({ length: cols }, () => Array(rows).fill(0));
     var grid = document.getElementById("gitter");
     grid.replaceChildren();
+    visited = new Set();
     minen_wo();
     spielfeld_erstellen();
     verloren = false;

@@ -12,11 +12,17 @@
     <div id="flaggen_cnt">0</div>
     <div id="timer">0</div>
     <input type="button" id="reset" value="Neustart" onclick="fct_reset()">
+    <select name="Schwierigkeit" id="schwierigkeit" onchange="change_dif()">
+      <option value="0">Einfach</option>
+      <option value="1">Mittel</option>
+      <option value="2">Schwierig</option>
+    </select>
   </div>
   <script src="../JS/timer.js"></script>
   <script src="../JS/flaggen.js"></script>
   <script src="../JS/grid_erstellen.js"></script>
   <script src="../JS/reset.js"></script>
   <script src="../JS/game_over.js"></script>
+  <script src="../JS/difficulty.js"></script>
 </body>
 </html>
