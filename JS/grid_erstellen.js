@@ -4,9 +4,11 @@ let cols = 0;
 let minen = 0;
 let verloren = false;
 let started = false;
+let dif = parseInt(document.getElementById("schwierigkeit").value)
 
 function schwierigkeit(){
-    switch(difficulty){
+    dif = parseInt(document.getElementById("schwierigkeit").value)
+    switch(dif){
         case 0:
             rows = 10;
             cols = 10;
@@ -23,7 +25,7 @@ function schwierigkeit(){
             minen = 99;
             break;
     }
-    updt_anzeige()
+    updt_anzeige();
 }
 
 schwierigkeit()
@@ -91,7 +93,7 @@ function right_click(Feld){
     }
 }
 
-const visited = new Set();
+let visited = new Set();
 
 function left_click(Feld){
     started = true;
