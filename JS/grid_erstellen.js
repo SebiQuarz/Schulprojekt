@@ -79,11 +79,11 @@ spielfeld_erstellen();
 console.log(minen_position);
 
 function right_click(Feld){
-    if (Feld.style.backgroundImage.includes('../Bilder/flagge.png')){
+    if (Feld.style.backgroundImage.includes('../Bilder/Flagge.png')){
         Feld.style.backgroundImage = "none";
         Flagge_minus();
     } else if (Flaggen < minen && visited.has(Feld.id) == false) {  
-        Feld.style.backgroundImage = "url('../Bilder/flagge.png')";
+        Feld.style.backgroundImage = "url('../Bilder/Flagge.png')";
         Feld.style.backgroundSize = "cover";
         Flagge_plus();  
     }
@@ -96,7 +96,7 @@ function left_click(Feld){
         return;
     }
     visited.add(Feld.id);
-    if (Feld.style.backgroundImage.includes('../Bilder/flagge.png')){
+    if (Feld.style.backgroundImage.includes('../Bilder/Flagge.png')){
         Feld.style.backgroundImage = "none";
         Flagge_minus();
     }
