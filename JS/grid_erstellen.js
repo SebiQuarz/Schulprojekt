@@ -61,25 +61,22 @@ function spielfeld_erstellen(){
             grid.appendChild(Feld);
             Feld.classList.add("Feld-btn");
             Feld.id = x + "/" + y;
-            console.log(Feld.id);
             Feld.addEventListener("contextmenu", function(e){
                 e.preventDefault();
                 right_click(Feld);
             });
             Feld.addEventListener("click", function(){
+                aussenrum(Feld);
                 left_click(Feld);
             });
             minen_zahler(Feld);
-            console.log(minen_nachbar);
         }
     }
 }
 
-minen_wo()
+minen_wo();
 
 spielfeld_erstellen();
-
-console.log(minen_position);
 
 function right_click(Feld){
     started = true;
@@ -167,6 +164,32 @@ function left_click(Feld){
                     }
                 }
                 break;
+        }
+    }
+}
+
+function aussenrum(Feld){
+    let cords = Feld.id.split("/");
+    let x = parseInt(cords[0]);
+    let y = parseInt(cords[1]);
+    if(visited.has(Feld.id)){
+        for(let zx = -1; zx < 2; zx ++){
+            for(let zy = -1; zy < 2; zy++){
+                if(zx == 0 && zy == 0){
+                    continue;
+                }
+                let nx = zx + x;
+                let ny = zy + y;
+
+                if(nx < 0 || ny < 0 || nx >= cols || ny >= rows){
+                    continue;
+                };
+                let Feld2 = document.getElementById(nx + "/" +  ny);
+                if (Feld2.style.backgroundImage.includes('../Bilder/Flagge.png')){
+                    continue;
+                }
+                left_click(Feld2)
+            }
         }
     }
 }
