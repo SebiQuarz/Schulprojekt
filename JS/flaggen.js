@@ -16,9 +16,3 @@ function Flagge_minus() {
     Flaggen--;
     updt_anzeige();
 }
-
-function fct_reset(){
-    Flaggen = 0;
-    updt_anzeige();
-    time = -1;
-}
