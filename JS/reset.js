@@ -1,5 +1,4 @@
 function fct_reset(){
-    window.alert("Neustart");
     Flaggen = 0;
     updt_anzeige();
     time = -1;
