@@ -83,7 +83,7 @@ function right_click(Feld){
     if (verloren) return;
     started = true;
     if (Feld.style.backgroundImage.includes('../Bilder/Flagge.svg')){
-        Feld.style.backgroundImage = "none";
+        Feld.style.backgroundImage = "url('../Bilder/Standard.svg')";
         Flagge_minus();
     } else if (Flaggen < minen && visited.has(Feld.id) == false) {  
         Feld.style.backgroundImage = "url('../Bilder/Flagge.svg')";
@@ -174,7 +174,8 @@ function aussenrum(Feld){
     let cords = Feld.id.split("/");
     let x = parseInt(cords[0]);
     let y = parseInt(cords[1]);
-    if(visited.has(Feld.id)){
+    let NachbarFlaggen = flaggen_zahler(Feld);
+    if(visited.has(Feld.id) && NachbarFlaggen == minen_nachbar[x][y]){
         for(let zx = -1; zx < 2; zx ++){
             for(let zy = -1; zy < 2; zy++){
                 if(zx == 0 && zy == 0){
@@ -219,4 +220,26 @@ function minen_zahler(Feld){
             }
         }
     }
+}
+
+function flaggen_zahler(Feld){
+    let NachbarFlaggen = 0;
+    let minen_anzahl = 0;
+    let cords = Feld.id.split("/");
+    let fx = parseInt(cords[0]);
+    let fy = parseInt(cords[1]);
+    for(let x = -1; x < 2; x++){
+        for(let y = -1; y < 2; y++){
+            let mx = fx + x;
+            let my = fy + y;
+            if (my==-1 || mx==-1 || mx==cols || my==rows){
+                continue
+            }
+            let FeldB = document.getElementById(mx + "/" +  my);
+            if (FeldB.style.backgroundImage.includes('../Bilder/Flagge.svg')){
+                NachbarFlaggen += 1;
+            }
+        }
+    }
+    return NachbarFlaggen;
 }

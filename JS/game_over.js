@@ -11,7 +11,7 @@ function game_over(){
                 Mine_Feld.style.backgroundSize = "cover";
             } else if (!minen_position[x][y] && Mine_Feld.style.backgroundImage.includes('../Bilder/Flagge.svg')){
                 Mine_Feld.style.backgroundImage = "none";
-                Mine_Feld.style.backgroundColor = "red";
+                Mine_Feld.style.backgroundImage = "url('../Bilder/FalscheFlagge.svg')";
                 Flagge_minus();
             }
         } 
