@@ -166,6 +166,7 @@ function left_click(Feld){
                 break;
         }
     }
+    check_win()
 }
 
 function aussenrum(Feld){
