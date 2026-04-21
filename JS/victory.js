@@ -12,7 +12,7 @@ function win(){
             let Feld = document.getElementById(x + "/" + y);
             if (Feld){
                 if (minen_position[x][y] == true){
-                Feld.style.backgroundImage = "url('../Bilder/Flagge.png')";
+                Feld.style.backgroundImage = "url('../Bilder/Flagge.svg')";
                 Feld.style.backgroundSize = "cover";
                 }
             }

@@ -56,8 +56,9 @@ function spielfeld_erstellen(){
             let Feld = document.createElement("button");
             Feld.style.width = "30px";
             Feld.style.height = "30px";
-            Feld.style.backgroundColor = "rgb(169, 169, 169)";
-            Feld.style.border = "1px solid #ffffff";
+            Feld.style.backgroundImage = "url('../Bilder/Standard.svg')"
+            Feld.style.backgroundSize = "cover";
+            Feld.style.border = "0px";
             grid.appendChild(Feld);
             Feld.classList.add("Feld-btn");
             Feld.id = x + "/" + y;
@@ -81,11 +82,11 @@ spielfeld_erstellen();
 function right_click(Feld){
     if (verloren) return;
     started = true;
-    if (Feld.style.backgroundImage.includes('../Bilder/Flagge.png')){
+    if (Feld.style.backgroundImage.includes('../Bilder/Flagge.svg')){
         Feld.style.backgroundImage = "none";
         Flagge_minus();
     } else if (Flaggen < minen && visited.has(Feld.id) == false) {  
-        Feld.style.backgroundImage = "url('../Bilder/Flagge.png')";
+        Feld.style.backgroundImage = "url('../Bilder/Flagge.svg')";
         Feld.style.backgroundSize = "cover";
         Flagge_plus();  
     }
@@ -99,7 +100,7 @@ function left_click(Feld){
     }
     started = true;
     visited.add(Feld.id);
-    if (Feld.style.backgroundImage.includes('../Bilder/Flagge.png')){
+    if (Feld.style.backgroundImage.includes('../Bilder/Flagge.svg')){
         Feld.style.backgroundImage = "none";
         Flagge_minus();
     }
@@ -114,39 +115,39 @@ function left_click(Feld){
     else{
         switch(minen_anzahl){
             case 1:
-                Feld.style.backgroundImage = "url('../Bilder/1.png')";
+                Feld.style.backgroundImage = "url('../Bilder/1.svg')";
                 Feld.style.backgroundSize = "cover";
                 break;
             case 2:
-                Feld.style.backgroundImage = "url('../Bilder/2.png')";
+                Feld.style.backgroundImage = "url('../Bilder/2.svg')";
                 Feld.style.backgroundSize = "cover";
                 break;
             case 3:
-                Feld.style.backgroundImage = "url('../Bilder/3.png')";
+                Feld.style.backgroundImage = "url('../Bilder/3.svg')";
                 Feld.style.backgroundSize = "cover";
                 break;
             case 4:
-                Feld.style.backgroundImage = "url('../Bilder/4.png')";
+                Feld.style.backgroundImage = "url('../Bilder/4.svg')";
                 Feld.style.backgroundSize = "cover";
                 break;
             case 5:
-                Feld.style.backgroundImage = "url('../Bilder/5.png')";
+                Feld.style.backgroundImage = "url('../Bilder/5.svg')";
                 Feld.style.backgroundSize = "cover";
                 break;
             case 6:
-                Feld.style.backgroundImage = "url('../Bilder/6.png')";
+                Feld.style.backgroundImage = "url('../Bilder/6.svg')";
                 Feld.style.backgroundSize = "cover";
                 break;
             case 7:
-                Feld.style.backgroundImage = "url('../Bilder/7.png')";
+                Feld.style.backgroundImage = "url('../Bilder/7.svg')";
                 Feld.style.backgroundSize = "cover";
                 break;
             case 8:
-                Feld.style.backgroundImage = "url('../Bilder/8.png')";
+                Feld.style.backgroundImage = "url('../Bilder/8.svg')";
                 Feld.style.backgroundSize = "cover";
                 break;
             case 0:
-                Feld.style.backgroundColor = "#000";
+                Feld.style.backgroundImage = "url('../Bilder/0.svg')";
                 for(let zx = -1; zx < 2; zx ++){
                     for(let zy = -1; zy < 2; zy++){
                         if(zx == 0 && zy == 0){
@@ -186,7 +187,7 @@ function aussenrum(Feld){
                     continue;
                 };
                 let Feld2 = document.getElementById(nx + "/" +  ny);
-                if (Feld2.style.backgroundImage.includes('../Bilder/Flagge.png')){
+                if (Feld2.style.backgroundImage.includes('../Bilder/Flagge.svg')){
                     continue;
                 }
                 left_click(Feld2)
