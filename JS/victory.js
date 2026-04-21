@@ -1,6 +1,6 @@
 function check_win(){
     let sichere_Felder = (rows * cols) - minen;
-    if (visited.size === sichere_Felder){
+    if (visited.size == sichere_Felder){
         win();
     }
 }
