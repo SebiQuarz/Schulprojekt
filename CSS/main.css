@@ -26,7 +26,7 @@
     grid-area: top;
     justify-self: end;
     height: 1.em;
-    background: #111;
+    background: black;
     color: #f00;
     font-size: 3em;
 }
@@ -35,7 +35,7 @@
     grid-area: top;
     justify-self: start;
     height: 1.em;
-    background: #111;
+    background: black;
     color: #f00;
     font-size: 3em;
 }
