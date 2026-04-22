@@ -1,8 +1,8 @@
 let Flaggen = 0;
 
 function updt_anzeige(){
-    let Flaggen_Uebrig = minen - Flaggen
-    let anzeige = document.getElementById('flaggen_cnt')
+    let Flaggen_Uebrig = minen - Flaggen;
+    let anzeige = document.getElementById('flaggen_cnt');
     if (Flaggen_Uebrig < 10){
         anzeige.innerText = `00${Flaggen_Uebrig}`
     }

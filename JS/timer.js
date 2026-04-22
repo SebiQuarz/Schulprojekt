@@ -1,5 +1,5 @@
 let time = 0;
-document.getElementById('timer').innerText = "000"
+document.getElementById('timer').innerText = "000";
 setInterval(() => {
     if(started==true && verloren == false){
         time++;
