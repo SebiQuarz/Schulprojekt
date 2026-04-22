@@ -47,15 +47,16 @@ function minen_wo(){
 
 function spielfeld_erstellen(){
     var grid = document.getElementById("gitter");
+    let Feld_size = 30
     grid.style.display = "grid";
-    grid.style.gridTemplateColumns = `repeat(${cols}, 30px)`;
+    grid.style.gridTemplateColumns = `repeat(${cols}, 20px)`;
     grid.style.textAlign = "center";
-
+    grid.style.overflow = "auto";
     for (let y = 0; y < rows; y++){
         for (let x = 0; x < cols; x++){
             let Feld = document.createElement("button");
-            Feld.style.width = "30px";
-            Feld.style.height = "30px";
+            Feld.style.width = "20px";
+            Feld.style.height = "20px";
             Feld.style.backgroundImage = "url('../Bilder/Standard.svg')"
             Feld.style.backgroundSize = "cover";
             Feld.style.border = "0px";

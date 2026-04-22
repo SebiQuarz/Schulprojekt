@@ -1,9 +1,14 @@
 *{
-    background-color: slategray ;
+    background-color: #252427 ;
 }
 #gitter{
     grid-area: bottom;
-    justify-self: center;
+    justify-self: center;   
+    margin: 0 auto;
+    width: fit-content;
+    overflow: auto;
+    max-width: 100%;
+    max-height: 80vh;
 }
 
 .grid-container{
@@ -11,7 +16,7 @@
     grid-template-areas:
         "top"
         "bottom";
-    background-color: black;
+    background-color: rgb(24, 26, 27);
 }
 #reset {
     grid-area: top;
@@ -26,8 +31,8 @@
     grid-area: top;
     justify-self: end;
     height: 1.em;
-    background: black;
-    color: #f00;
+    background: rgb(24, 26, 27);
+    color: rgb(226, 226, 226);
     font-size: 3em;
 }
 #flaggen_cnt{
@@ -35,8 +40,17 @@
     grid-area: top;
     justify-self: start;
     height: 1.em;
-    background: black;
-    color: #f00;
+    background: rgb(24, 26, 27);
+    color: rgb(226, 226, 226);
     font-size: 3em;
 }
 
+#schwierigkeit{
+    background: rgb(24, 26, 27);
+    border: 0px;
+    color: rgb(226, 226, 226);
+}
+
+body {
+    overflow: auto;
+}
