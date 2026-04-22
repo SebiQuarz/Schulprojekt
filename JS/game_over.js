@@ -15,6 +15,8 @@ function game_over(){
                 Flagge_minus();
             }
         } 
-    }  
-    window.alert("Verloren");      
+    } 
+    setTimeout(function(){
+        window.alert("Verloren");     
+    },100); 
 }
